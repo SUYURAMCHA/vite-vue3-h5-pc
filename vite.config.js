@@ -27,7 +27,7 @@ export default defineConfig({
           rootValue: 37.5, // 1rem，根据 设计稿宽度/10 进行设置
           propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
           // 开启移动端适配
-          selectorBlackList: ['.van-'], // 忽略转换的类名
+          selectorBlackList: ['.vant-'], // 忽略转换的类名
 
         })
       ]
