@@ -9,6 +9,14 @@ import { VantResolver } from '@vant/auto-import-resolver';
 
 import postCssPxToRem from "postcss-pxtorem"
 
+// 获取是否为移动端
+const isMobile = () => {
+  const flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+  return !!flag
+}
+
+console.log('isMobile', isMobile())
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -24,11 +32,10 @@ export default defineConfig({
     postcss: {
       plugins: [
         postCssPxToRem({
-          rootValue: 37.5, // 1rem，根据 设计稿宽度/10 进行设置
-          propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
-          // 开启移动端适配
-          selectorBlackList: ['.vant-'], // 忽略转换的类名
-
+          // rootValue: 37.5, // 1rem，根据 设计稿宽度/10 进行设置
+          rootValue: isMobile ? 37.5 : 112, // 1rem，根据 设计稿宽度/10 进行设置
+          propList: ['*'],
+          unitPrecision: 5,
         })
       ]
     }

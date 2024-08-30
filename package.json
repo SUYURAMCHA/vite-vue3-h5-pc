@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite --open --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview  --open --host 0.0.0.0"
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
+    "axios": "^1.7.4",
     "pinia": "^2.1.7",
     "vant": "^4.9.4",
     "vue": "^3.4.29",
